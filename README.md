@@ -39,6 +39,16 @@ go install github.com/unbound-force/replicator/cmd/replicator@latest
 
 Download from [GitHub Releases](https://github.com/unbound-force/replicator/releases). Available for macOS (arm64), Linux (amd64, arm64).
 
+### Build from Source
+
+```bash
+git clone https://github.com/unbound-force/replicator.git
+cd replicator
+make build
+```
+
+Requires Go 1.25+ and `make`. The binary is placed at `bin/replicator`. Verify with `bin/replicator version`.
+
 ## Usage
 
 ```bash
