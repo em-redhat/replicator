@@ -70,7 +70,7 @@ preserving the org-standard linter set.
 ### D4: CI check name follows nested job naming
 
 GitHub Actions names nested reusable workflow jobs as
-`<caller-job-name> / <reusable-job-name>`. The consumer job is named
+`<caller-workflow-name> / <reusable-job-name>`. The caller workflow is named
 "Standardized CI" and the reusable job is named "Run linters",
 producing the check name `Standardized CI / Run linters`. This is the
 name used in the release preflight `ci_checks` array and branch
