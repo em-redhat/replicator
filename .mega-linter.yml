@@ -1,12 +1,7 @@
 # https://megalinter.io/latest/supported-linters/
-ADDITIONAL_EXCLUDED_DIRECTORIES:
-  - vendor
-  - .opencode  # AI agent/skill definitions
-  - .claude    # AI config
-  - .uf        # Replicator local data
-  - .specify   # Spec framework
-  - dist       # Build output
-MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: "(vendor/)"
+# Keep style checks focused while security scanners inspect the full tree.
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: '(^|/)(vendor|\.opencode|\.claude|\.uf|\.specify|dist)/'
+YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: '(^|/)(vendor|\.opencode|\.claude|\.uf|\.specify|dist)/'
 PROTOBUF_PROTOLINT_FILTER_REGEX_EXCLUDE: "(vendor/)"
 ENABLE_LINTERS:
   - ACTION_ZIZMOR
