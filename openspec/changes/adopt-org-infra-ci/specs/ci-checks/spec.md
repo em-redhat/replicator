@@ -44,13 +44,10 @@ configuration SHOULD exclude project-specific directories (`.opencode`,
 - **THEN** style linters (markdownlint, yamllint) MUST NOT report
   findings in excluded directories
 
-Note: `ADDITIONAL_EXCLUDED_DIRECTORIES` is a global MegaLinter setting
-that applies to all linters, including security linters (gitleaks,
-KICS). The excluded directories (`.opencode`, `.claude`, `.uf`,
-`.specify`, `dist`) contain AI agent configurations and build output,
-not application secrets or infrastructure-as-code, so the global
-exclusion is acceptable. If per-linter granularity is needed in the
-future, use `*_FILTER_REGEX_EXCLUDE` overrides.
+The exclusions MUST use per-linter `*_FILTER_REGEX_EXCLUDE` overrides.
+They MUST NOT use `ADDITIONAL_EXCLUDED_DIRECTORIES`, because that global
+setting would also prevent security linters such as betterleaks and KICS
+from scanning the excluded directories.
 
 ### Requirement: Release Preflight Gating
 

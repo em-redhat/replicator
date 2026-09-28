@@ -16,8 +16,17 @@
 
 ## 1. Add CI Checks Workflow and MegaLinter Config
 
-- [x] 1.1 [P] Create `.github/workflows/ci_checks.yml` calling `complytime/org-infra/.github/workflows/reusable_ci.yml@0c784711926c9864f027ec565fd7c06a382d80f8` (v0.7.1). Trigger on push to main and PRs to main. Follow the canonical consumer pattern from `unbound-force/unbound-force`. SHA-pin all action references per CI-001. Set least-privilege permissions per CI-020. Include a header comment block per CI-011. Check whether `reusable_ci.yml` defines an internal concurrency group before adding a caller-level one (see design R5).
-- [x] 1.2 [P] Create `.mega-linter.yml` at the repository root. Preserve the org-standard `ENABLE_LINTERS` list. Add `ADDITIONAL_EXCLUDED_DIRECTORIES` for `.opencode`, `.claude`, `.uf`, `.specify`, and `dist`. Include `MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE` and `PROTOBUF_PROTOLINT_FILTER_REGEX_EXCLUDE` for vendor directory.
+- [x] 1.1 [P] Create `.github/workflows/ci_checks.yml` calling
+  `complytime/org-infra/.github/workflows/reusable_ci.yml@0c784711926c9864f027ec565fd7c06a382d80f8`
+  (v0.7.1). Trigger on push to main and PRs to main. Follow the canonical
+  consumer pattern from `unbound-force/unbound-force`. SHA-pin all action
+  references per CI-001. Set least-privilege permissions per CI-020. Include a
+  header comment block per CI-011. Check whether `reusable_ci.yml` defines an
+  internal concurrency group before adding a caller-level one (see design R5).
+- [x] 1.2 [P] Create `.mega-linter.yml` at the repository root. Preserve the
+  org-standard `ENABLE_LINTERS` list. Add per-linter style exclusions for
+  `.opencode`, `.claude`, `.uf`, `.specify`, `dist`, and `vendor` without
+  excluding those directories from security scanners.
 
 ## 2. Update Release and Branch Protection
 

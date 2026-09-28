@@ -59,18 +59,19 @@ org-infra at the pinned SHA. Replicator will provide only a local
 `.mega-linter.yml` to exclude project-specific directories. All other
 configs will use the org-infra defaults via fallback.
 
-### D3: Local .mega-linter.yml with directory exclusions
+### D3: Local .mega-linter.yml with style-linter exclusions
 
 Replicator has directories that should not be scanned by style linters:
 `.opencode` (AI agent definitions), `.claude` (AI config), `.uf`
 (replicator local data), `.specify` (spec framework), and `dist`
-(build output). A local `.mega-linter.yml` will exclude these while
-preserving the org-standard linter set.
+(build output). A local `.mega-linter.yml` will exclude these through
+per-linter filters while preserving security scanner coverage and the
+org-standard linter set.
 
 ### D4: CI check name follows nested job naming
 
 GitHub Actions names nested reusable workflow jobs as
-`<caller-workflow-name> / <reusable-job-name>`. The caller workflow is named
+`<caller-job-name> / <reusable-job-name>`. The caller job is named
 "Standardized CI" and the reusable job is named "Run linters",
 producing the check name `Standardized CI / Run linters`. This is the
 name used in the release preflight `ci_checks` array and branch
